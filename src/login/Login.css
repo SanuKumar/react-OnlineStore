@@ -1,3 +1,8 @@
 .login-form {
-    text-align: center;
+    display: inline-block;
+    margin: 50px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px green;
+    width: 200px;
+    padding: 30px;
 }

@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import logo from './logo.svg';
-
+import AuthContainer from './login/AuthContainer';
 import './App.css';
 import './login/Login.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
-import ProductList from './product/ProductList';
-import Details from './components/Details';
-import Cart from './components/Cart';
-import Default from './components/Default';
-import LoginForm from './login/LoginForm';
+import LoginForm from './login/LoginContainer';
+import Modal from './components/Modal';
 
 
 class App extends Component {
@@ -19,13 +14,16 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navbar />
-        <Switch>
-          <Route exact path='/' component={ProductList} />
-          <Route path='/login' component={LoginForm} />
-          <Route path='/details' component={Details} />
-          <Route path='/cart' component={Cart} />
-          <Route component={Default} />
+        <Switch>          
+          <Route exact path='/' component={LoginForm} />
+          <AuthContainer />
         </Switch>
+        <Modal />
+        {/* <footer className="page-footer font-small blue">
+          <div className="footer-copyright text-center py-3 fixed-bottom">© 2019 Copyright:
+            <a href="#/"> Under Construction</a>
+          </div>
+        </footer> */}
       </React.Fragment>
     );
   }

@@ -1,41 +1,36 @@
 import React, { Component } from 'react';
-import { Field, reduxForm, SubmissionError } from 'redux-form';
-import { connect } from 'react-redux';
-
+import { Field, reduxForm } from 'redux-form';
 
 class LoginForm extends Component {
 
-  // renderField = ({input, label, type, meta:{touched,error}}) => (
-  //   <div>
-  //     <label>{label}</label>
-  //     <div>
-  //       <input {...input} placeholder={label} type={type}/>
-  //       {touched && error && <span>{error}</span>}
-  //     </div>
-  //   </div>
-  // )
+ 
+   renderField = ({input, label, type, meta:{touched,error}, placeholder}) => (
+    <div>
+      <label>{label}</label>
+      <div>
+        <input {...input} placeholder={placeholder} type={type}/>
+        {touched && error && <span>{error}</span>}
+      </div>
+    </div>
+  )
 
   render() {
+    const {handleSubmit, onSubmit} = this.props;
     return (
-      <form className='login-form'>
-        <div>
-          <label>User Name</label>
-        </div>
+      <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
         <Field
             name='userName'
-            component='input'
+            component={this.renderField}
             type='text'
             placeholder='User Name'
+            label='User Name'
         /><br/><br/>
-        <div>
-          <label>Password</label>
-        </div>
         <Field
           name='password'
-          component='input'
+          component={this.renderField}
           type='password'
           placeholder='Enter Password'
-          label='s'
+          label='Password'
         /><br/><br/>
         <button 
           type='submit'
@@ -46,19 +41,12 @@ class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = (state, ownprops) => {
-  console.log('state',state,'ownprops',ownprops);
-  const Login = state.Login;
-  return {
-    userName: Login.userName,
-    password: LoginForm.password
-  }
-}
+//export default LoginForm is same
 
-LoginForm = reduxForm({
+export default reduxForm({
   form: 'Login',
   fields:['name'],
   enableReinitialize : true
 })(LoginForm)
 
-export default connect(mapStateToProps)(LoginForm);
+

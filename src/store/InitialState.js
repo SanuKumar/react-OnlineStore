@@ -3,7 +3,7 @@ export default {
         product:[]
     },
     Login: {
-        userName: '',
-        password: ''
+        userName: '', //cannot store the password in this state
+        isLogin: true //change afterward
     }
 }
