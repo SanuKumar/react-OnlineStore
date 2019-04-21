@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
           throw new SubmissionError({password: 'Please enter password'})
         }
         dispatch(doLogin(userName,password,() =>{
-          // alert('Welcome TO Store')
+          alert('Welcome TO Store')
           ownprops.history.push('./productlist')
         }))
       }

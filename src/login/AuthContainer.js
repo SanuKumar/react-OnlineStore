@@ -32,4 +32,4 @@ const mapStateToProps = state => ({
     isLogin: state.Login.isLogin
 })
     
-export default withRouter(connect(mapStateToProps) (AuthContainer));
+export default withRouter(connect(mapStateToProps)(AuthContainer));

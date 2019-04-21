@@ -19,11 +19,11 @@ class App extends Component {
           <AuthContainer />
         </Switch>
         <Modal />
-        {/* <footer className="page-footer font-small blue">
+        <footer className="page-footer font-small blue">
           <div className="footer-copyright text-center py-3 fixed-bottom">© 2019 Copyright:
             <a href="#/"> Under Construction</a>
           </div>
-        </footer> */}
+        </footer>
       </React.Fragment>
     );
   }
